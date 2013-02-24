@@ -2,8 +2,6 @@ require 'spec_helper'
 
 describe "StaticPages" do
 
-  let(:base_title){"Ruby on Rails Tutorial Sample App"}
-
   subject {page}
 
   shared_examples_for "all static pages" do
@@ -15,35 +13,13 @@ describe "StaticPages" do
 
     before(:each) { visit root_path }
 
-    let(:heading){'Sample App'}
+    let(:heading){'Tic Tac Toe'}
     let(:page_title){''}
 
     it_should_behave_like "all static pages"
     it { should_not have_selector('title', :text=>"| Home") }
   end
 
-
-
-  describe "Help page" do
-
-    before(:each) { visit help_path }
-
-    let(:heading){'Help'}
-    let(:page_title){'Help'}
-
-    it_should_behave_like "all static pages"
-  end
-
-  describe "About page" do
-
-    before(:each) { visit about_path }
-
-    let(:heading){'About Us'}
-    let(:page_title){'About Us'}
-
-    it_should_behave_like "all static pages"
-  end
-    
   describe "Contact" do
 
     before(:each) { visit contact_path }
@@ -56,16 +32,12 @@ describe "StaticPages" do
 
   it "should have the right links on the layout" do
     visit root_path
-   click_link "sample app"
-   should have_selector('h1', text:"Sample App")
+   click_link "tic tac toe"
+   should have_selector('h1', text:"Tic Tac Toe")
    click_link "Sign in"
-   should have_selector('h1', text:"Sign up")
-   click_link "Help"
-   should have_selector('h1', text:"Help")
+   should have_selector('h1', text:"Sign in")
    click_link "Home"
-   should have_selector('h1', text:"Sample App")
-   click_link "About"
-   should have_selector('h1', text:"About")
+   should have_selector('h1', text:"Tic Tac Toe")
    click_link "Contact"
    should have_selector('h1', text:"Contact")
    click_link "Home"

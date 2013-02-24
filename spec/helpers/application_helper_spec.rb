@@ -6,7 +6,7 @@ describe ApplicationHelper do
   end  
 
   it "should include the base title" do
-    full_title('foo').should =~/^Ruby on Rails Tutorial Sample App/
+    full_title('foo').should =~/^Tic Tac Toe/
   end
 
   it "should not include a br for the home page" do

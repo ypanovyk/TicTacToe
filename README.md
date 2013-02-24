@@ -1,6 +1,6 @@
-# Ruby on Rails Tutorial: sample application
+This is rails application developed in scope of testing task
+by [Yuriy Panovyk](ypanovyk@gamil.com)
 
-This is the sample application for
-[*Ruby on Rails Tutorial: Learn Rails by Example*](http://railstutorial.org/)
+Application is developed with help of [*"Ruby on Rails Tutorial: Learn Rails by Example"*](http://railstutorial.org/)
 by [Michael Hartl](http://michaelhartl.com/).
 

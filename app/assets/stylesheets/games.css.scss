@@ -1,0 +1,27 @@
+// Place all the styles related to the Games controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.status {
+  color: #999999;
+  border-bottom: 1px solid #eaeaea;
+  h2 {
+    text-align: left;
+    
+    &:before {
+     content:'#'
+    }
+  }
+
+}
+
+.games-board {
+  margin-bottom: 30px;
+}
+
+th {
+ padding: 0 5px;
+}
+
+td {
+  padding: 0 5px;
+}

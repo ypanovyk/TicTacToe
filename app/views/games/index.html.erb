@@ -1,0 +1,21 @@
+<div class="span4 offset1">
+  <table border="1" class="games-board">
+    <tr>
+      <th>Game id</th>
+      <th>Creator</th>
+      <th>Participant</th>
+      <th>Status</th>
+      <th>Winner</th>
+    </tr>
+    <% @games.each do |game| %>
+      <tr>
+        <td><%= game.id %></td>
+        <td><%= username(game.creator) %></td>
+        <td><%= username(game.participant) %></td>
+        <td><%= game.status %></td>
+        <td><%= username(game.winner) %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+

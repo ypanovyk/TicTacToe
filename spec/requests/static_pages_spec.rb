@@ -16,7 +16,8 @@ describe "StaticPages" do
     let(:heading){'Tic Tac Toe'}
     let(:page_title){''}
 
-    it_should_behave_like "all static pages"
+    it { should have_selector('h4', :text => heading) }
+    it { should have_selector('title', :text => full_title(page_title)) }
     it { should_not have_selector('title', :text=>"| Home") }
   end
 
@@ -33,11 +34,11 @@ describe "StaticPages" do
   it "should have the right links on the layout" do
     visit root_path
    click_link "tic tac toe"
-   should have_selector('h1', text:"Tic Tac Toe")
+   should have_selector('h4', text:"Tic Tac Toe")
    click_link "Sign in"
    should have_selector('h1', text:"Sign in")
    click_link "Home"
-   should have_selector('h1', text:"Tic Tac Toe")
+   should have_selector('h4', text:"Tic Tac Toe")
    click_link "Contact"
    should have_selector('h1', text:"Contact")
    click_link "Home"

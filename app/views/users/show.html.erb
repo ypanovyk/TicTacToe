@@ -2,11 +2,21 @@
 
 <div class="row">
   <aside class="span4">
-    <section>
-        <h1>
-          <%= gravatar_for(@user, size:40) %>
-          <%= @user.name %>
-        </h1>
-      </aside>
-    </section>
+  <section>
+  <h1>
+    <%= gravatar_for(@user, size:40) %>
+    <%= @user.name %>
+  </h1>
+  </section>
+  <% if signed_in? %>
+    <ul class="actions">
+      <li>
+        <%= link_to "New game", new_game_path, class:"btn"  %>
+      </li>
+      <li>
+        <%= link_to "Join game", games_path, class:"btn"  %>
+      </li>
+    </ul>
+  <% end %>
+  </aside>
 </div>

@@ -15,6 +15,10 @@ class GamesController < ApplicationController
   end
 
   def index
-    @games = Game.find(:all)
+    if signed_in?
+      @games = Game.find(:all)
+    else
+      redirect_to signin_path
+    end
   end
 end

@@ -18,4 +18,13 @@ class Game < ActiveRecord::Base
 
   validates :creator, presence: true
   validates :status, presence: true, format: {with: VALID_STATUS_REGEX}
-end
+
+
+  def closed?
+    if self.status=="closed"
+      true
+    else
+      false
+    end
+  end
+end        

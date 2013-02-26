@@ -60,7 +60,7 @@ describe "GamePages" do
           login_as(participant)
           visit games_path
         end
-        it {should_not have_selector(:xpath, "//tr[@class='closed']/td[6]/a[@href='/games/#{game.id}']")}
+        it {should have_selector(:xpath, "//tr/td[6]/a[@href='/games/#{game.id}/join']")}
       end
     end
   end

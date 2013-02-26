@@ -21,4 +21,12 @@ class GamesController < ApplicationController
       redirect_to signin_path
     end
   end
+
+  def join
+    @game = Game.find(params[:id])
+    @game.participant=current_user.id
+    @game.status="active"
+    @game.save
+    redirect_to @game
+  end
 end

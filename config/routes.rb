@@ -19,7 +19,7 @@ SampleApp::Application.routes.draw do
 
   match '/signout', to: "sessions#destroy", via: :delete
 
-
+  match '/games/:id/join', to: "games#join", as: 'join_game'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

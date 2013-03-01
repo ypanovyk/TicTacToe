@@ -1,8 +1,13 @@
 SampleApp::Application.routes.draw do
   resources :users
+
   resources :sessions, only: [:new, :create, :destroy]
 
-  resources :games
+  resources :games do
+    member do
+      get 'join'
+    end
+  end
 
   root to: 'static_pages#home'
 
@@ -19,7 +24,6 @@ SampleApp::Application.routes.draw do
 
   match '/signout', to: "sessions#destroy", via: :delete
 
-  match '/games/:id/join', to: "games#join", as: 'join_game'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

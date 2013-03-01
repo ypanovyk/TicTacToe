@@ -5,8 +5,11 @@ gem 'rails', '3.2.11'
 gem 'bootstrap-sass', '2.1'
 
 gem 'bcrypt-ruby', '3.0.1'
+
+gem 'haml'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
@@ -16,6 +19,7 @@ group :development, :test do
   gem 'spork', '0.9.2'
   gem 'terminal-notifier-guard'
   gem 'annotate', '2.5.0'
+  gem 'haml-rails'
 end
 
 group :production do

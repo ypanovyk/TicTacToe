@@ -1,0 +1,21 @@
+- provide(:title, "Games")
+.span6
+  %table.game-table{border:'1'}
+    %tr
+      %th Game id
+      %th Creator
+      %th Participant
+      %th Status
+      %th Winner
+      %th Actions
+    - @games.each do |game|
+      %tr{class:"#{game.closed? ? 'closed':''}"}
+        %td=game.id
+        %td=username(game.creator)
+        %td=username(game.participant)
+        %td=game.status
+        %td=username(game.winner)
+        - if game.status=='new' && game.creator != current_user.id 
+          %td=link_to("Join game", join_game_path(game), class:"btn btn-mini btn-success")
+        - else
+          %td

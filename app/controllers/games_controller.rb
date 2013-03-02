@@ -1,7 +1,8 @@
 class GamesController < ApplicationController
+  before_filter :find_game, only:[:show, :join]
+  before_filter :require_signin
 
   def show
-    @game = Game.find(params[:id])
   end
 
   def new
@@ -15,18 +16,21 @@ class GamesController < ApplicationController
   end
 
   def index
-    if signed_in?
       @games = Game.find(:all)
-    else
-      redirect_to signin_path
-    end
   end
 
   def join
-    @game = Game.find(params[:id])
     @game.participant=current_user.id
     @game.status="active"
+    @game.whose_turn=current_user.id
     @game.save
     redirect_to @game
   end
+
+  private
+
+  def find_game
+    @game = Game.find(params[:id])
+  end
+
 end

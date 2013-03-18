@@ -46,7 +46,7 @@ describe "Authentication" do
 
   describe "authorization" do
 
-    context "for non-signed-in users" do
+    context "as non-signed-in users" do
       let(:user) { FactoryGirl.create(:user) }
 
       context "in the Users controller" do
@@ -88,7 +88,7 @@ describe "Authentication" do
       let(:user) { FactoryGirl.create(:user) }
       let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@example.com") }
       before { login_as user }
-
+      
       describe "visiting Users#edit page" do
         before { visit edit_user_path(wrong_user) }
         it { should_not have_selector('title', text: full_title('Edit user')) }
@@ -100,5 +100,17 @@ describe "Authentication" do
       end
     end
 
+    context "as non-admin user" do
+      let(:user) { FactoryGirl.create(:user) }
+      let(:non_admin) { FactoryGirl.create(:user) }
+
+      before { login_as non_admin }
+
+      describe "submitting a DELETE request to the Users#destroy action" do
+        before { delete user_path(user) }
+        specify { response.should redirect_to root_path }
+      end
+
+    end
   end
 end

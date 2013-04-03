@@ -16,7 +16,7 @@ class GamesController < ApplicationController
   end
 
   def index
-      @games = Game.find(:all)
+      @games = Game.paginate(page: params[:page])
   end
 
   def join

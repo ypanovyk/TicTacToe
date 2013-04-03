@@ -5,7 +5,7 @@
 #  id          :integer          not null, primary key
 #  creator     :integer
 #  participant :integer
-#  status      :string(255)
+#  status      :string(255)      default("new")
 #  winner      :integer
 #  whose_turn  :integer
 #  created_at  :datetime         not null
@@ -27,4 +27,5 @@ class Game < ActiveRecord::Base
       false
     end
   end
+
 end        

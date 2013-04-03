@@ -19,6 +19,7 @@ FactoryGirl.define do
   end
 
   factory :game do
+    #creator { |id| id.association(:user).id}
     creator {User.first.id}
     participant nil 
     status "new"

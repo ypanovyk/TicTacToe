@@ -4,6 +4,8 @@ include UsersHelper
 describe "GamePages:" do
   subject {page}
 
+  after(:all){ User.delete_all }
+
   describe "Games list page" do
     let(:user) {FactoryGirl.create(:user)}
     let(:game){FactoryGirl.create(:game)}
@@ -15,9 +17,8 @@ describe "GamePages:" do
       it { should have_selector('h1', text: 'Sign in')}
     end
     
-    context "signed in user" do
+    context "when user is signed in" do
       before do
-        visit signin_path
         login_as(user)
 
         visit user_path(user)
@@ -35,6 +36,22 @@ describe "GamePages:" do
       it {should have_selector(:xpath, "//tr/td[5][text()='--']")}
       it {should_not have_selector(:xpath, "//tr/td[6]/a[@href='/games/#{game.id}']")}
 
+      describe "pagination" do
+        before(:all) do
+          FactoryGirl.create(:user)
+          30.times { FactoryGirl.create(:game) }
+        end
+        after(:all) { Game.delete_all }
+
+        it { should have_selector('div.pagination')}
+
+        it "should list each game" do
+          Game.paginate(page:1).each do |game|
+            page.should have_selector('td', text: "#{game.id}")
+          end
+        end
+      end
+      
       context "participant joined the game" do
         before do
           game.participant=participant.id

@@ -5,7 +5,7 @@
 #  id          :integer          not null, primary key
 #  creator     :integer
 #  participant :integer
-#  status      :string(255)
+#  status      :string(255)      default("new")
 #  winner      :integer
 #  whose_turn  :integer
 #  created_at  :datetime         not null
@@ -15,7 +15,7 @@
 require 'spec_helper'
 
 describe Game do
-  before { @game = Game.new(creator:1, participant:nil, status:"new", winner:nil, whose_turn:1)}
+  before { @game = Game.new(creator:1)}
 
   subject {@game}
 
@@ -36,12 +36,12 @@ describe Game do
     it {should_not be_valid}
   end
   
-  context "when status is valid" do
+  context "when status is not valid" do
     before {@game.status="in progress"}
     it {should_not be_valid}
   end
 
-  context "when status is not valid" do
+  context "when status is valid" do
     it "should be valid" do
       statuses = %w[new, active, closed]
       statuses.each do |s|

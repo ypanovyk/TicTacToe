@@ -16,6 +16,8 @@ namespace :db do
                    password: password,
                    password_confirmation: password)
     end
+
+    99.times { Game.create!(creator:1) }
   end
 end
 

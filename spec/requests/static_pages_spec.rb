@@ -72,7 +72,8 @@ describe "StaticPages" do
         fill_in "Name", with: "Example User"
         fill_in "Email", with: "user@example.com"
         fill_in "Password", with: "foobar"
-        fill_in "Confirmation", with: "foobar"
+        fill_in "Confirm password", with: "foobar"
+        select('English', :from => 'Language')
       end
 
       it "should create a user" do

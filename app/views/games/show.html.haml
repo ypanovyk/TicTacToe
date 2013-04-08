@@ -1,7 +1,7 @@
 .status
   %h2=@game.id
-  %p Ststus - #{status(@game)}
-  %p Opponent - #{@game.participant}
+  %p=t 'status_message', message: status(@game)
+  %p=t 'opponent_message', message: @game.participant
 
 .board.span4.offset1
 

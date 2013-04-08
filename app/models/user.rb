@@ -10,10 +10,11 @@
 #  password_digest :string(255)
 #  remember_token  :string(255)
 #  admin           :boolean          default(FALSE)
+#  locale          :string(255)      default("en")
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation
+  attr_accessible :email, :name, :password, :password_confirmation, :locale
   has_secure_password
 
   validates :name, presence: true, length: {maximum:50}

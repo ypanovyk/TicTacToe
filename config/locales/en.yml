@@ -6,3 +6,61 @@ en:
     attributes:
       user:
         password_digest: "Password"
+
+  must_login_notice: "You must be signedin in to access this section!"
+  invalid_login_error: "Invalid email/password combination"
+  welcome_message: "Welcome to the TicTacToe App!" 
+  changes_saved_message: "Changes successfuly saved." 
+  user_destroyed_message: "User destroyed." 
+
+  game_finished_status: "Game finished. Winner - %{username}" 
+  game_wait_opponent_status: "Waiting for opponent"
+  game_wait_turn_status: "Waiting for opponent's turn"  
+  game_your_turn_status: "Your turn" 
+
+  join_game_button: "Join game" 
+  
+  status_message: "Status - %{message}"
+  opponent_message: "Opponent - %{message}"
+
+
+  footer:
+    by_message: "by Yuriy Panovyk"
+
+  
+  nav:
+    contact_link: "Contact"
+    home_link: "Home"
+    users_link: "Users"
+    profile_link: "Profile"
+    settings_link: "Settings"
+    sign_out_link: "Sign out"
+    sign_in_link: "Sign in"
+    sign_up_button: "Sign up now!"
+    delete_link: "Delete"
+
+
+  titles:
+    contact_page: "Contact page"
+    home_page: "Welcome to the Tic Tac Toe game" 
+    user_edit_page: 'Edit user' 
+    user_edit_page_h1: "Update your profile"
+    user_index_page: 'All users' 
+    sign_up_page: 'Sign up'
+    sign_up_page_h1: "Sign up"
+
+
+  sure_confirmation: "Are You sure?" 
+
+  user_edit_form:
+    name_label: "Name"
+    email_label: "Email"
+    password_label: "Password"
+    confirm_label: "Confirm password"
+    locale_label: "Language"
+    save_button: "Save changes"
+    change_gravatar: "change"
+
+ 
+  new_game_button: "New game"
+  join_game_button: "Join game"

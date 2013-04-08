@@ -88,6 +88,8 @@ describe "GamePages:" do
         end
       end
 
+      #TODO add tests for Game details page
+
     end
   end
 end

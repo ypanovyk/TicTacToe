@@ -2,8 +2,8 @@
 
   =link_to image_tag("tictac.jpg", alt:"tic tac toe", class: "home-image"), "http://en.wikipedia.org/wiki/Tic-tac-toe"
 
-  %h4 Welcome to the Tic Tac Toe game
+  %h4=t('titles.home_page') 
 
-  =link_to "Sign up now!", signup_path, class:"btn btn-large btn-primary"
+  =link_to t('nav.sign_up_button'), signup_path, class:"btn btn-large btn-primary"
 
 

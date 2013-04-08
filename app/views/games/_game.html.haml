@@ -5,7 +5,7 @@
   %td=game.status
   %td=username(game.winner)
   - if game.status=='new' && game.creator != current_user.id 
-    %td=link_to("Join game", join_game_path(game), class:"btn btn-mini btn-success")
+    %td=link_to(t(:join_game_button), join_game_path(game), class:"btn btn-mini btn-success")
   - else
     %td
 

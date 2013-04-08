@@ -7,7 +7,6 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new(creator: current_user.id, status:"new")
-    #@game = Game.new(creator: current_user.id, status:new)
     @game.save
     redirect_to @game
   end

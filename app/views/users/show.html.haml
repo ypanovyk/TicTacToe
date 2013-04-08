@@ -5,6 +5,6 @@
       %h1=gravatar_for(@user, size:40)+@user.name
     - if signed_in?
       %ul.actions
-        %li=link_to "New game", new_game_path, class:"btn"
-        %li=link_to "Join game", games_path, class:"btn"
+        %li=link_to t('new_game_button'), new_game_path, class:"btn"
+        %li=link_to t('join_game_button'), games_path, class:"btn"
 

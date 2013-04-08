@@ -1,20 +1,23 @@
-- provide(:title, 'Sign up')
-%h1 Sign up
+- provide(:title, t('titles.sign_up_page'))
+%h1=t('titles.sign_up_page_h1')
 .row
   .span4.offset1
     =form_for(@user) do |f|
       = render 'shared/error_messages'
-      = f.label :name
+      = f.label :name, t('user_edit_form.name_label')
       = f.text_field :name
 
-      = f.label :email
+      = f.label :email, t('user_edit_form.email_label')
       = f.text_field :email
       
-      = f.label :password
+      = f.label :password, t('user_edit_form.password_label')
       = f.password_field :password
 
-      = f.label :password_confirmation, "Confirmation"
+      = f.label :password_confirmation, t('user_edit_form.confirm_label')
       = f.password_field :password_confirmation
+
+      = f.label :locale, t('user_edit_form.locale_label')
+      = f.select :locale, options_for_select([['English','en'],['Ukrainian','ua']], 1)
 
       = f.submit "Create my account", class:  "btn btn-large btn-primary"
 

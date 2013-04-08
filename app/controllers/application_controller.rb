@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     def require_signin
       unless signed_in?
         store_location
-       flash[:notice] = "You must be signedin in to access this section"
+        flash[:notice] = t :must_login_notice
        redirect_to signin_path
       end
     end

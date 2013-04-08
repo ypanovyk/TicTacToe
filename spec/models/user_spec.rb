@@ -10,6 +10,7 @@
 #  password_digest :string(255)
 #  remember_token  :string(255)
 #  admin           :boolean          default(FALSE)
+#  locale          :string(255)      default("en")
 #
 
 require 'spec_helper'
@@ -27,6 +28,7 @@ describe User do
   it {should respond_to(:password_confirmation)}
   it {should respond_to(:authenticate)}
   it {should respond_to(:remember_token)}
+  it {should respond_to(:locale)}
   it {should respond_to(:admin)}
 
   it {should be_valid}
@@ -46,7 +48,7 @@ describe User do
     before {@user.name = 'a'*51}
     it {should_not be_valid}
   end
-
+                          
   describe "when email format is invalid" do
     it "should be invalid" do
       addresses = %w[user@foo,com user_at_foo.org example.user@foo.
@@ -135,6 +137,27 @@ describe User do
     end
 
     it {should be_admin}
+  end
+
+  describe "preffered language" do
+    context "not set" do
+      it {should be_valid}
+    end
+
+    context "default should be english" do
+      before {@user.save}
+      specify {@user.locale.should == "en"}
+    end
+
+    context "set by user" do
+      before do
+        @user.locale = "nl"
+        @user.save
+      end
+
+      specify {@user.locale.should == "nl"}
+    end
+
   end
 end
 
